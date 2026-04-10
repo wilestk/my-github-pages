@@ -133,6 +133,7 @@ The final neuRLcar architecture looks like this:
 ***neuRLcar architecture.** Groupings of raw input features ("nodes") and derived features ("edges") are embedded and attention is performed between all of these groups. Then, the attention result is fed into a simple MLP and two separate logit heads predict who_scores_next (0-1, orange-blue) as well as goal imminence (0-1, is this frame less than 90 frames (3s) to a goal?)
 
  These two binary predictions are composed like so to give an evaluation that improves upon the raw who scores next prediction:
+ 
 $$
 e(g,wsn) = \operatorname{sign}(wsn)\cdot (g + |wsn| - g|wsn|)
 $$
