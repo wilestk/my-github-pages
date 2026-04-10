@@ -3,7 +3,7 @@ layout: default
 title: neuRLcar
 ---
 
-If you want to test out neuRLcar, download it here: https://bakkesplugins.com/plugin/704
+If you want to test out neuRLcar, download the BakkesMod plugin [here](https://bakkesplugins.com/plugin/704).
 ![neuRLcar plugin splash](images/plugin-splash.png)
 
 ---
@@ -87,7 +87,7 @@ Additionally, to improve model performance I added a separate category of input 
 So, I computed relative position and velocity between all the dynamic "nodes" of input embeddings (up to 6 players and the ball). I call these dynamic<->dynamic edges. Then, I also computed what I call dynamic<->static edges, which are simply each dynamic node's relative position compared to important locations on the field, including the center of all 6 faces of the field (floor, ceiling, offensive backwall, defensive backwall, both sidewalls), and the center of all 4 edges of the goal's outline.
 
 ![](images/basic-dimensions.png)
-***RL field dimensions.** Rocket League's standard field keeps track of the x, y, and z positions of all players and the ball. Dimensions relative to the field are absolute dimensions. I also fed the model data about the relative dimensions of the players and ball relative to key spots on the field and each other. From: https://wiki.rlbot.org/v4/botmaking/useful-game-values/*
+***RL field dimensions.** Rocket League's standard field keeps track of the x, y, and z positions of all players and the ball. Dimensions relative to the field are absolute dimensions. I also fed the model data about the relative dimensions of the players and ball relative to key spots on the field and each other. From: (https://wiki.rlbot.org/v4/botmaking/useful-game-values/)[https://wiki.rlbot.org/v4/botmaking/useful-game-values/]*
 
 Another constraint the model should have is that it should yield the same prediction if the situation is reversed. So the network takes in as another input the inverted physics frame, with everything flipped around the X axis.
 
@@ -168,7 +168,7 @@ Without these people, this project wouldn't have been possible.
 ---
 
 
-If you want to test out neuRLcar, download the plugin here: https://bakkesplugins.com/plugin/704
+If you want to test out neuRLcar, download the BakkesMod plugin [here](https://bakkesplugins.com/plugin/704).
 
 Feedback, questions, and comments are welcome: neurlcar@gmail.com
 
