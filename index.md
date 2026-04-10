@@ -1,3 +1,7 @@
+---
+title: neuRLcar
+---
+
 If you want to test out neuRLcar, download it here: https://bakkesplugins.com/plugin/704
 ![neuRLcar plugin splash](images/plugin-splash.png)
 
