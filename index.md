@@ -139,7 +139,7 @@ e(g,wsn) = \operatorname{sign}(wsn)\cdot (g + |wsn| - g|wsn|)
 $$
 
 ![](images/prob_sum.png)
-***WSN and goal immanence composition.**  This formula forces the model's evaluation to be more confident the more that it thinks a goal is imminent, while still respecting longer-term confident WSN guesses. This composed evaluation was used during training to compute and backpropagate the loss, and resulted in a MAE training improvement of 0.01 over WSN only evaluations. Subjectively, I think this composition allows the model to more easily identify missed scoring opportunities. Note that in this figure the evaluation ranges from -1 to 1 instead of 0-1, but this doesn't change the concept.*
+***WSN and goal imminence composition.**  This formula forces the model's evaluation to be more confident the more that it thinks a goal is imminent, while still respecting longer-term confident WSN guesses. This composed evaluation was used during training to compute and backpropagate the loss, and resulted in a MAE training improvement of 0.01 over WSN only evaluations. Subjectively, I think this composition allows the model to more easily identify missed scoring opportunities. Note that in this figure the evaluation ranges from -1 to 1 instead of 0-1, but this doesn't change the concept.*
 
 ---
 
