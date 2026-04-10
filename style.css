@@ -2,7 +2,7 @@ body {
   background: #0b0b0b;
   color: #ffffff;
   font-family: system-ui, sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   margin: 0;
 }
 
@@ -44,3 +44,4 @@ hr {
   border-top: 1px solid #444;
   margin: 40px 0;
 }
+
