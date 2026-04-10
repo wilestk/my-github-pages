@@ -2,6 +2,7 @@ body {
   background: #0b0b0b;
   color: #ffffff;
   font-family: system-ui, sans-serif;
+  font-size: 16px;
   margin: 0;
 }
 
@@ -11,23 +12,29 @@ main {
   padding: 0 20px;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
+  text-align: center;
 }
 
-p {
+p, li {
   line-height: 1.7;
   color: #d0d0d0;
 }
 
 a {
-  color: #4da3ff;
+  color: #66b3ff;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #8ec8ff;
 }
 
 img {
   display: block;
   margin: 40px auto;
-  max-width: 1000px;   
+  max-width: 1000px;
   width: auto;
   height: auto;
 }
