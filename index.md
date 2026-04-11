@@ -41,7 +41,7 @@ Rocket League is a physics-based car soccer game that is played in two teams (Or
 
 Rocket League is a physics-based game. The cars and ball interact with each other through the rules of the physics of the game universe. This is calculated using a physics engine, which iterates 120 times per second. In a way, one can think of RL as a turn-based game. Only a single set of inputs can be registered by each player every 1/120th of a second. The most fundamental aspect of the game is its physics frames, which define the position, velocities, rotational velocities, and rotational orientation of the ball and cars/players for each frame. So, a positional evaluator needs to take in the gamut of the physics state of the game on every frame in order to give its output.
 
-Another important thing to realize when creating a positional evaluator for this game is that the 5-minute clock is almost completely arbitrary. The only time when the clock matters for gameplay is when the clock is at zero, in which case the game stays alive until the ball touches the ground. This is the only time when the clock impacts gameplay. When the clock is ignored, Rocket League can be understood not a single 5-minute game, but as a series of small games from kickoff to a goal being scored, where either Blue or Orange win/score.
+Another important thing to realize when creating a positional evaluator for this game is that the 5-minute clock is almost completely arbitrary. The only time when the clock matters for gameplay is when the clock is at zero, in which case the game stays alive until the ball touches the ground. This is the only time when the clock impacts gameplay. When the clock is ignored, Rocket League can be understood not as a single 5-minute game, but as a series of small games from kickoff to a goal being scored, where either Blue or Orange win/score.
 
 In order to train the positional evaluator, I accumulated a dataset of over 100,000 replays of the highest level Rocket League gameplay using publicly available replay hosting sites and then divided those replays into the kickoff->goal "subgames" and labelled each physics frame of those subgames with "who scores next".
 
@@ -110,7 +110,7 @@ The segmented kickoff-goal labelled data harbors a lot of variability in the siz
  Additional analysis of the quality of primitive positional evaluators always yielded graphs such as these:
  
 ![](images/binaryaccuracy_z.png)
- ***Accuracy of a simple MLP model relative to goalframe.** The goalframe is the frame a goal is scored. Frames until goal (i.e. time until goal) is shown on the horizontal axis, and the binary accuracy of the evaluation is shown on the vertical axis. Different colored lines show different evaluation confidence thresholds. The model guesses a number in the range of 0 - 1, with 0 being an 100% confident guess for Orange, and 1 for Blue. For example, the blue line considers all evaluations above 0.51 and below 0.49, and assays their accuracy relative to who actually scored. Evaluations are considered accurate if the true value is above 0.51 and the correct label guess is 1, inaccurate if the correct  label guess is 0, and vice versa.
+ ***Accuracy of a simple MLP model relative to goalframe.** The goalframe is the frame a goal is scored. Frames until goal (i.e. time until goal) is shown on the horizontal axis, and the binary accuracy of the evaluation is shown on the vertical axis. Different colored lines show different evaluation confidence thresholds. The model guesses a number in the range of 0 - 1, with 0 being an 100% confident guess for Orange, and 1 for Blue. For example, the blue line considers all evaluations above 0.51 and below 0.49, and assays their accuracy relative to who actually scored. Evaluations are considered accurate if the true value is above 0.51 and the correct label guess is 1, inaccurate if the correct  label guess is 0, and vice versa.*
  
 
 Binary accuracy relative to goalframe here is how accurate the model's bias is relative to how far away the prediction frame is temporally from a goal. These analyses show that models are temporally myopic beyond a certain time threshold. Note that replays only record 30 frames per second, out of the 120 frames per second of live play, so here 300 frames is 10 seconds.
@@ -130,7 +130,7 @@ Second, I created a second binary prediction metric that I call "goal imminence"
 The final neuRLcar architecture looks like this:
 
 ![](images/neuRLcar_arch.png)
-***neuRLcar architecture.** Groupings of raw input features ("nodes") and derived features ("edges") are embedded and attention is performed between all of these groups. Then, the attention result is fed into a simple MLP and two separate logit heads predict who_scores_next (0-1, orange-blue) as well as goal imminence (0-1, is this frame less than 90 frames (3s) to a goal?)
+***neuRLcar architecture.** Groupings of raw input features ("nodes") and derived features ("edges") are embedded and attention is performed between all of these groups. Then, the attention result is fed into a simple MLP and two separate logit heads predict who_scores_next (0-1, orange-blue) as well as goal imminence (0-1, is this frame less than 90 frames (3s) to a goal?)*
 
  These two binary predictions are composed like so to give an evaluation that improves upon the raw who scores next prediction:
  
